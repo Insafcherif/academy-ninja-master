@@ -15,13 +15,14 @@
     </div>
     <script type="text/javascript">
       var leftValue = 450,
-        topValue = 100 , 
-		image = "down1"
+        topValue = 100,
+        image = "down1";
 
       function update() {
         document.getElementById("character").style.left = leftValue + "px";
         document.getElementById("character").style.top = topValue + "px";
-		document.getElementById("character").style.backgroundImage = "url(img/"+image+".png)";
+        document.getElementById("character").style.backgroundImage =
+          "url(img/" + image + ".png)";
       }
 
       document.onkeydown = function (e) {
@@ -29,18 +30,34 @@
         if (e.keyCode == 37 && leftValue > 50) {
           // LEFT
           leftValue = leftValue - 10;
-		  image = "left1"
+          if (image == "left2") {
+            image = "left1";
+          } else {
+            image = "left2";
+          }
         } else if (e.keyCode == 39 && leftValue < 1200) {
           // RIGHT
           leftValue = leftValue + 10;
-		  image = "right1"
+          if (image == "right1") {
+            image = "right2";
+          } else {
+            image = "right1";
+          }
         } else if (e.keyCode == 40 && topValue < 400) {
           // DOWN
           topValue = topValue + 10;
-		  image = "down1"
+          if (image == "down1") {
+            image = "down2";
+          } else {
+            image = "down1";
+          }
         } else if (e.keyCode == 38 && topValue > 50) {
           topValue = topValue - 10;
-		  image = "top1"
+          if (image == "top1") {
+            image = "top2";
+          } else {
+            image = "top1";
+          }
         }
         update();
       };
